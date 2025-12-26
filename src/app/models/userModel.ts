@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
-import type { IUser } from '../interfaces/user.js';
 import bcrypt from 'bcryptjs';
+import type { IUser } from '../interfaces/user.js';
 
 const UserSchema = new Schema<IUser>(
   {
@@ -31,8 +31,9 @@ const UserSchema = new Schema<IUser>(
 
 // Hash password before saving
 UserSchema.pre('save', async function () {
-  if (!this.isModified('password')) return;
-  this.password = await bcrypt.hash(this.password, 12);
+  const user = this as any;
+  if (!user.isModified('password')) return;
+  user.password = await bcrypt.hash(user.password, 12);
 });
 
 export const User = mongoose.model<IUser>('User', UserSchema);

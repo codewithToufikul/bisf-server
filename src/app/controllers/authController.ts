@@ -61,7 +61,7 @@ export const register = async (req: Request, res: Response) => {
             role: req.body.role || 'admin'
         });
 
-        const token = signToken(newUser._id as string);
+        const token = signToken((newUser._id as unknown) as string);
 
         res.status(201).json({
             status: 'success',
