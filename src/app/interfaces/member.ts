@@ -9,13 +9,26 @@ export interface ISocialLinks {
 export interface IMember extends Document {
   name: string;
   designation: string;
-  photo?: string; // Cloudinary URL
-  email?: string;
+  image?: string; // ImgBB URL
+  email: string;
   phone?: string;
   bio?: string;
+  fullBio?: string;
   education?: string;
+  university?: string;
+  department?: string;
+  session?: string;
+  passingYear?: string;
   achievements?: string[];
+  expertise?: string[];
   socialLinks?: ISocialLinks;
+  category?: string;
+  yearOfStudy?: string;
+  gender?: string;
+  bloodGroup?: string;
+  presentAddress?: string;
+  permanentAddress?: string;
+  whyJoin?: string;
   order?: number;
   isActive: boolean;
   createdAt: Date;

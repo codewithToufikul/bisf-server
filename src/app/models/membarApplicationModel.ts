@@ -38,9 +38,31 @@ const MemberApplicationSchema = new Schema<IApplication>(
     address: {
       type: String,
     },
+    image: {
+      type: String, // ImgBB URL
+    },
+    designation: {
+      type: String,
+      default: "General Member",
+    },
+    bio: {
+      type: String,
+    },
+    category: {
+      type: String,
+      default: "Member",
+    },
     whyJoin: {
       type: String,
       required: true,
+    },
+    achievements: {
+      type: [String],
+      default: [],
+    },
+    expertise: {
+      type: [String],
+      default: [],
     },
     status: {
       type: String,

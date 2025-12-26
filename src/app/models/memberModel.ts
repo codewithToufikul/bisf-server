@@ -1,24 +1,76 @@
 import mongoose, { Schema } from "mongoose";
 import type { IMember } from "../interfaces/member.js";
 
-const MemberSchemea = new Schema<IMember>({
-  name: {String, required: true},
-  designation: {String, required: true},
-  photo: String,
-  email: String,
-  phone: String,
-  bio: String,
-  education: String,
-  achievements: [String],
-  socialLinks: {
-    linkedin: String,
-    facebook: String,
-    twitter: String,
+const MemberSchema = new Schema<IMember>({
+  name: {
+    type: String,
+    required: true,
+    trim: true
   },
-  order: Number,
-  isActive: Boolean,
-  createdAt: Date,
-  updatedAt: Date,
+  designation: {
+    type: String,
+    default: "General Member"
+  },
+  image: {
+    type: String,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  phone: {
+    type: String,
+  },
+  bio: {
+    type: String,
+  },
+  fullBio: {
+    type: String,
+  },
+  education: {
+    type: String,
+  },
+  university: {
+    type: String,
+  },
+  department: {
+    type: String,
+  },
+  session: {
+    type: String,
+  },
+  passingYear: {
+    type: String,
+  },
+  achievements: [String],
+  expertise: [String],
+  socialLinks: {
+      linkedin: String,
+      facebook: String,
+      twitter: String
+  },
+  category: {
+    type: String,
+    default: "Member" // "Executive Committee", "Department Heads", "Advisory Board", "Member"
+  },
+  yearOfStudy: String,
+  gender: String,
+  bloodGroup: String,
+  presentAddress: String,
+  permanentAddress: String,
+  whyJoin: String,
+  
+  order: {
+      type: Number,
+      default: 0
+  },
+  isActive: {
+      type: Boolean,
+      default: true
+  }
+}, {
+  timestamps: true
 });
 
-export const Member = mongoose.model<IMember>('Member', MemberSchemea)
+export const Member = mongoose.model<IMember>('Member', MemberSchema);

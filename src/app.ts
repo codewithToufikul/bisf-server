@@ -1,7 +1,17 @@
 import express, { type Request, type Response } from 'express';
 import cors from 'cors';
+import { AuthRoutes } from './app/routes/authRoutes.js';
+import { ApplicationRoutes } from './app/routes/applicationRoutes.js';
+import { MemberRoutes } from './app/routes/memberRoutes.js';
 
 const app = express();
+
+app.use(cors({
+    origin: ['http://localhost:5173', 'https://bilfuk.com', 'https://www.bilfuk.com'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 app.use(express.json());
 
 app.get("/", async(req: Request, res: Response)=>{
@@ -15,5 +25,10 @@ app.get("/", async(req: Request, res: Response)=>{
         }
     })
 })
+
+// Routes
+app.use("/api/auth", AuthRoutes);
+app.use("/api/applications", ApplicationRoutes);
+app.use("/api/members", MemberRoutes);
 
 export default app;

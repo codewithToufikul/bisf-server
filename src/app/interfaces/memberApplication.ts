@@ -11,7 +11,13 @@ export interface IApplication extends Document {
   department?: string;
   yearOfStudy?: string;
   address?: string;
+  image?: string;
+  designation?: string;
+  bio?: string;
+  category?: string;
   whyJoin: string;
+  achievements?: string[];
+  expertise?: string[];
   status: ApplicationStatus;
   appliedAt: Date;
   reviewedAt?: Date;
