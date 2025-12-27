@@ -31,6 +31,8 @@ export interface IMember extends Document {
   whyJoin?: string;
   order?: number;
   isActive: boolean;
+  homepageshow?: boolean;
+  isDeleted?: boolean;
   createdAt: Date;
   updatedAt: Date;
 }

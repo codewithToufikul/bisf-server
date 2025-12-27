@@ -6,7 +6,8 @@ export interface IApplication extends Document {
   fullName: string;
   email: string;
   phone: string;
-  institution?: string;
+  university?: string;
+  homepageshow?: boolean;
   studentId?: string;
   department?: string;
   yearOfStudy?: string;

@@ -73,7 +73,7 @@ export const updateApplicationStatus = async (req: Request, res: Response) => {
           bio: application.bio || '', 
           fullBio: application.bio || '', 
           whyJoin: application.whyJoin,
-          university: application.institution || '', 
+          university: application.university || '', 
           department: application.department || '',
           yearOfStudy: application.yearOfStudy || '',
           presentAddress: application.address || '', 
@@ -81,7 +81,8 @@ export const updateApplicationStatus = async (req: Request, res: Response) => {
           isActive: true,
           socialLinks: {}, 
           achievements: application.achievements || [],
-          expertise: application.expertise || []
+          expertise: application.expertise || [],
+          homepageshow: application.homepageshow || false
         });
       }
     }

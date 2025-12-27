@@ -3,6 +3,7 @@ import cors from 'cors';
 import { AuthRoutes } from './app/routes/authRoutes.js';
 import { ApplicationRoutes } from './app/routes/applicationRoutes.js';
 import { MemberRoutes } from './app/routes/memberRoutes.js';
+import { AdminRoutes } from './app/routes/adminRoutes.js';
 
 const app = express();
 
@@ -30,5 +31,6 @@ app.get("/", async(req: Request, res: Response)=>{
 app.use("/api/auth", AuthRoutes);
 app.use("/api/applications", ApplicationRoutes);
 app.use("/api/members", MemberRoutes);
+app.use("/api/admin", AdminRoutes);
 
 export default app;

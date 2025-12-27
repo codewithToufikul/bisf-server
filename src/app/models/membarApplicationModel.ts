@@ -19,9 +19,13 @@ const MemberApplicationSchema = new Schema<IApplication>(
       required: true,
       trim: true,
     },
-    institution: {
+    university: {
       type: String,
       trim: true,
+    },
+    homepageshow: {
+      type: Boolean,
+      default: false,
     },
     studentId: {
       type: String,

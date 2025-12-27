@@ -68,6 +68,14 @@ const MemberSchema = new Schema<IMember>({
   isActive: {
       type: Boolean,
       default: true
+  },
+  homepageshow: {
+      type: Boolean,
+      default: false
+  },
+  isDeleted: {
+      type: Boolean,
+      default: false
   }
 }, {
   timestamps: true
